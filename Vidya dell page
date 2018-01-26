@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+
+	<style type="text/css">
+		#body_div
+		{
+			width: 100%;
+
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="body_div">
+		
+		<div id="logo_div" >
+			<div id="logo_text">
+				<h3>LOGO</h3>
+			</div>
+
+			<div id="addr_div">
+			<label id="addr">267 Park Avenue</label>
+			<label>New York, NY, 20910</label>
+			</div>
+
+			<div id="phn_div">
+			<label id="phn">(123)45678910</label>
+			<label>info@demolink.org</label>
+			</div>
+
+			<div id="timings_div">
+			<label id="timings">Mon - Sat 9:00-13:00</label>
+			<label>Sunday closed</label>
+			</div>
+		</div>
+
+		<div id="nav_div">
+			<nav>
+				<button class="dropbtn">home</button>
+  					<div class="dropdown-content">
+    					<a href="#">Link 1</a>
+    					<a href="#">Link 2</a>
+    					<a href="#">Link 3</a>
+  					</div> |
+				<a href="/css/">Pages</a> |
+				<a href="/js/">Services</a> |
+				<a href="/jquery/">Contact</a>
+			</nav>
+		</div>
+	</div>
+
+</body>
+</html>
