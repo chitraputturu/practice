@@ -1,0 +1,6 @@
+.angular works purely mvc pattarn - compare to jqury , debug is easy.also in angular everything we can write component based (using typescript)
+
+2.using spring boot , we can manage and monitor ,production application.
+3.we can configure everything in properties file.
+4.it is working on RAD SDLC.
+5.spring boot is purely works on microservices.
