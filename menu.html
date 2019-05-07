@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+  	$(document).ready(function(){
+    	var menuItems = [
+				{"name": "Home", "link": "#", "sub": 
+					[
+						{   "title" : "Submenu 1",
+                            "sub" : [
+                                {"name": "Home", "link": "#", "sub": null},
+                                {"name": "Welcome", "link": "#", "sub": null},
+                                {"name": "Publication", "link": "#", "sub": null}
+                            ]
+                        },
+                        {   "title" : "Submenu 2",
+                            "sub" : [
+                                {"name": "Home", "link": "#", "sub": null},
+                                {"name": "Welcome", "link": "#", "sub": null},
+                                {"name": "Publication", "link": "#", "sub": null}
+                            ]
+                        }
+                    ]
+				},
+            	{"name": "BARX", "link": "#", "sub": 
+                [
+						{   "title" : "Submenu 1",
+                            "sub" : [
+                                {"name": "Home", "link": "#", "sub": null},
+                                // {"name": "Welcome", "link": "#", "sub": null},
+                                {"name": "Publication", "link": "#", "sub": null}
+                            ]
+                        }
+                    ]
+				},        
+            	{"name": "Commodities", "link": "#","sub":null}
+			];
+            
+            var ul = $('#nav-menu');
+            for(var i=0; i<menuItems.length; i++){
+              ul.append("<li  class='nav-item'><a class='nav-link' href='" + menuItems[i].link + "'>" + menuItems[i].name + "</a></li>");
+              var list = $('#nav-menu li').eq(i);
+              if(menuItems[i].sub && menuItems[i].sub.length > 0){
+                  list.addClass('dropdown');
+                  list.find('a')
+                    .addClass('dropdown-toggle')
+                    .attr('data-toggle', 'dropdown')
+                    .attr('aria-haspopup', 'true')
+                    .attr('aria-expanded', 'false')
+                    .attr('role', 'button');
+                list.append("<div class='dropdown-menu'></div>");
+                
+                submenu = menuItems[i].sub;
+                dropdown = list.find('.dropdown-menu');
+                for(var j=0; j<submenu.length; j++){
+                    dropdown.append("<div class='submenu'><div class='menu-title'>" + submenu[j].title + "</div></div>");
+                    var childSubMenu = submenu[j].sub;
+                    for(var k=0; k<childSubMenu.length; k++){
+                        var submenudiv = list.find('.submenu').eq(j);
+                        submenudiv.append("<a class='dropdown-item' href='" + childSubMenu[k].link + "'>" + childSubMenu[k].name + "</a>");
+                    }
+                }
+              }
+            }
+            
+            ul.find('li').eq(0).children('a').addClass('active');
+
+    });
+  </script>
+</head>
+<body>
+
+<ul class="nav nav-tabs" id="nav-menu">
+</ul>
+</body>
+</html>
